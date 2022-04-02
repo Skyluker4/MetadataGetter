@@ -33,7 +33,6 @@ def list_files(path):
 
 # Append files with list_files to path + folders in home directory
 files = list_files(path + "Documents/")
-print(type(files))
 files.extend(list_files(path + "Downloads/"))
 files.extend(list_files(path + "Pictures/"))
 #files.extend(list_files(path + "Movies/"))
