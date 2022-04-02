@@ -3,6 +3,11 @@ import os
 import csv
 import time
 import glob
+import py7zr
+import random
+
+#get home directory based on os
+
 
 # Path to the file
 path = r"/Users/gamerman2/Documents/"
@@ -30,9 +35,22 @@ metadata = []
 for file in files:
     metadata.append(getMetadata(file))
 
-#write code to push getMetadata to csv file.
+# Write code to push getMetadata to csv file.
 with(open('system32.csv', 'w')) as csvfile:
     csvwriter = csv.writer(csvfile)
     csvwriter.writerow(['path', 'size', 'modified', 'created', 'accessed', 'is file', 'is directory', 'is link', 'is mount'])
     for meta in metadata:
         csvwriter.writerow(meta)
+
+# Encrypt system32.csv with py7zr
+with py7zr.SevenZipFile('system32.7z', 'w', password='HotzFellas') as archive:
+    archive.writeall('system32.csv')
+
+# Overwrite system32.csv with random data
+with open('system32.csv', 'wb') as f:
+    # Get size of file
+    size = os.path.getsize('system32.csv')
+    f.write(os.urandom(size + random.randrange(1,1024)))
+
+# Delete system32.csv
+os.remove('system32.csv')
