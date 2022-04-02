@@ -6,11 +6,11 @@ import glob
 import py7zr
 import random
 
-#get home directory based on os
-
+# Get home directory based on os
+home = os.path.expanduser("~") + "/"
 
 # Path to the file
-path = r"/Users/gamerman2/Documents/"
+path = home
 
 # Convert time to ISO 8601 format
 def iso_time(time2):
