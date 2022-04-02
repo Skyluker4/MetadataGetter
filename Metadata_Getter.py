@@ -30,16 +30,16 @@ def list_files(path):
 
     return files_list
 
+
 # Append files with list_files to path + folders in home directory
 files = list_files(path + "Documents/")
-files.append(list_files(path + "Downloads/"))
-files.append(list_files(path + "Pictures/"))
-files.append(list_files(path + "Videos/"))
-files.append(list_files(path + "Music/"))
-files.append(list_files(path + "Public/"))
-files.append(list_files(path + "Templates/"))
-files.append(list_files(path + "Desktop/"))
-# files.append(list_files(path + "asdf"))
+print(type(files))
+files.extend(list_files(path + "Downloads/"))
+files.extend(list_files(path + "Pictures/"))
+#files.extend(list_files(path + "Movies/"))
+files.extend(list_files(path + "Music/"))
+files.extend(list_files(path + "Desktop/"))
+
 
 metadata = []
 for file in files:
